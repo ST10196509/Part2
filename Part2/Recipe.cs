@@ -22,6 +22,8 @@ namespace Part2
             bool breakk = false;
 
             double quantity = 0;
+
+            //Name of recipe
             Console.Write("Enter the ");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write("name");
@@ -37,6 +39,7 @@ namespace Part2
             {
                 try
                 {
+                    //Number of Ingredients
                     Console.Write("Enter the ");
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
                     Console.Write("number");
@@ -52,7 +55,7 @@ namespace Part2
 
                 }
                 //Catch block will be executed if the input is invalid
-                catch (FormatException ex)
+                catch (FormatException )
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Incorect Input.");
@@ -60,16 +63,15 @@ namespace Part2
                 }
             }
             
-
+            //Gets details for the ingredients
             for (int i = 0; i < numIngredients; i++)
             {
-
+                //Name of ingredient
                 Console.Write("Enter the ");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write("name");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write(" of ingredient");
-
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write($" {i + 1}");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -86,13 +88,12 @@ namespace Part2
                 {
                     try
                     {
-
+                        //Quantity
                         Console.Write("Enter the ");
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.Write("quantity");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(" of the ingredient");
-
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.Write($" {i + 1}");
                         Console.ForegroundColor = ConsoleColor.White;
@@ -103,20 +104,20 @@ namespace Part2
                         Console.ForegroundColor = ConsoleColor.White;
                         breakk = true;
                     }
-                    catch (FormatException ex)
+                    catch (FormatException )
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Incorect Input.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                 }
-
+                
+                //Unit of Measurement
                 Console.Write("Enter the ");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write("unit of measurement");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write(" for the ingredient: ");
-
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write($" {i + 1}");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -126,8 +127,24 @@ namespace Part2
                 string unit = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.White;
 
+                //FoodGroup
+                Console.Write("Enter the ");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.Write("food group");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(" for the ingredient: ");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.Write($" {i + 1}");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(": ");
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                string foodGroup = Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.White;
+
+
                 // This method adds an ingredient to the recipe.
-                Ingredient ingredient = new Ingredient(name, quantity, unit);
+                Ingredient ingredient = new Ingredient(name, quantity, unit, foodGroup);
                 Ingredients.Add(ingredient);
 
             }
@@ -150,7 +167,7 @@ namespace Part2
                     Console.ForegroundColor = ConsoleColor.White;
                     breakk = true;
                 }
-                catch (FormatException ex)
+                catch (FormatException )
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Incorect Input.");
@@ -257,12 +274,12 @@ namespace Part2
             Console.WriteLine("--------------------------");
             Console.WriteLine("Recipe: " + Name);
             Console.WriteLine("--------------------------");
-            
 
             foreach (Ingredient ingredient in Ingredients)
             {
                 Console.WriteLine("Ingredient: " + ingredient.Name);
                 Console.WriteLine("Quantity: " + ingredient.Quantity + " " + ingredient.Unit);
+                Console.WriteLine("Food Group: " + ingredient.foodGroup);
                 Console.WriteLine("----------");
             }
 
