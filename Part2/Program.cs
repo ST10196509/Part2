@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace Part2
 {
@@ -25,9 +26,9 @@ namespace Part2
                 switch (choice) 
                 {
                     case "1":
-                        //Creates a new recipe.
+                        //Creates a new recipe. This does not contain a constructor
                         Recipe recipe = new Recipe();
-                        //Gets recipe details from the user.
+                        //Creates the recipe by getting the details from the user
                         recipe.EnterDetails();
                         //Adds the recipe to the collection.
                         recipes.Add(recipe);
@@ -46,7 +47,7 @@ namespace Part2
                             break;
                         }
 
-                        // Sort the recipes by name.
+                        // Sort the recipes by name. this is how to sort a list (var variablename = listname.OrderBy(r => r.attribute) )
                         var sortedRecipes = recipes.OrderBy(r => r.Name);
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.Write("\n--------------------------");
@@ -69,18 +70,22 @@ namespace Part2
                         //Gets recipe name from the user
                         string recipeName = Console.ReadLine();
                         Console.ForegroundColor = ConsoleColor.White;
-                        //Compares the gottenRecipe(recipeName) to the names in the recipes list.
+                        //Compares the gottenRecipe(recipeName) to the names in the recipes list and stores it in selectedRecipe.
                         Recipe selectedRecipe = recipes.Find(r => r.Name.ToLower() == recipeName.ToLower().Trim());
-                        
+
                         //if gottenRecipe(recipeName) is not found in the recipe list.
                         if (selectedRecipe == null)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Recipe not found.");
+                            Console.WriteLine("Recipe was not found.");
                             Console.ForegroundColor = ConsoleColor.White;
                             break;
                         }
-                        selectedRecipe.Display();
+                        else
+                        {
+                            selectedRecipe.Display();
+                        }
+
                         break;
 
                     case "3":
@@ -92,6 +97,7 @@ namespace Part2
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choice.");
+                        
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
