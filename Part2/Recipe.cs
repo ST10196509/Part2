@@ -17,12 +17,12 @@ namespace Part2
         public List<Ingredient> Ingredients = new List<Ingredient>();
         // A list of type Step that will contain the step desctiprion
         public List<Step> Steps = new List<Step>();
-        public double Factor ;
+        public double Factor;
         int numIngredients;
         int numSteps;
         int caloriesPerUnit;
 
-        
+
         //This method gets the Recipe name, ingrediets(name,quantity,unitofmeasurement,caloriesperunit, foodgroup, and the steps)
         public void EnterDetails()
         {
@@ -36,13 +36,13 @@ namespace Part2
             Console.Write("name");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" of the recipe: ");
-                
+
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             //Gets the name of the recipe
             Name = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.White;
 
-            
+
             // This while loop will continue to run until the breakk variable is set to true(user-input is valid).
             while (!(breakk))
             {
@@ -65,15 +65,15 @@ namespace Part2
 
                 }
                 //Catch block will be executed if the input is invalid
-                catch (FormatException )
+                catch (FormatException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    
+
                     Console.WriteLine("Incorect Input.");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             }
-            
+
             //Gets details for the ingredients
             for (int i = 0; i < numIngredients; i++)
             {
@@ -93,7 +93,7 @@ namespace Part2
                 string name = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.White;
 
-                
+
                 // This while loop will continue to run until the breakk variable is set to true(user-input is valid).
                 breakk = false;
                 while (!(breakk))
@@ -117,20 +117,20 @@ namespace Part2
                         Console.ForegroundColor = ConsoleColor.White;
                         breakk = true;
                     }
-                    catch (FormatException )
+                    catch (FormatException)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Incorect Input.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                 }
-                
+
                 //-------------Unit of Measurement
                 Console.Write("Enter the ");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write("unit of measurement");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(" for the ingredient: ");
+                Console.Write(" for the ingredient");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write($" {i + 1}");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -171,30 +171,95 @@ namespace Part2
                     }
                 }
 
-                //FoodGroup
+                //-------------FoodGroup
                 Console.Write("Enter the ");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write("food group");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write(" for the ingredient");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.Write($" {i + 1}");
+                Console.WriteLine($" {i + 1}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(": ");
+                Console.Write("1.Fruits \n2.Vegetables \n3.Grains " +
+                                "\n4.Protien \n5.Dairy \n6.Oils \n7.Sweets \n8.Other \n>>");
 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                //Gets the food Group from the user
-                string foodGroup = Console.ReadLine();
+                string choice = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.White;
+                string foodGroup = "";
 
+                breakk = false;
+                while (!breakk)
+                {
+                    switch (choice.ToLower().Trim())
+                    {
+                        case "1":
+                        case "fruits":
+                            foodGroup = "Fruits";
+                            breakk = true;
+                            break;
+
+
+                        case "2":
+                        case "vegetables":
+                            foodGroup = "Vegetables";
+                            breakk = true;
+                            break;
+
+                        case "3":
+                        case "grains":
+                            foodGroup = "Grains";
+                            breakk = true;
+                            break;
+
+                        case "4":
+                        case "protien":
+                            foodGroup = "Protien";
+                            breakk = true;
+                            break;
+
+                        case "5":
+                        case "dairy":
+                            foodGroup = "Dairy";
+                            breakk = true;
+                            break;
+
+                        case "6":
+                        case "oils":
+                            foodGroup = "Oils";
+                            breakk = true;
+                            break;
+
+                        case "7":
+                        case "sweets":
+                            foodGroup = "Sweets";
+                            breakk = true;
+                            break;
+                        case "8":
+                            Console.Write("Enter the food group >>");
+                            foodGroup = Console.ReadLine();
+                            breakk = true;
+                            break;
+                        default:
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Invalid input");
+                            Console.ForegroundColor = ConsoleColor.White;
+
+                            Console.WriteLine("\nEnter number or name of food group ");
+                            Console.Write("1.Fruits \n2.Vegetables \n3.Grains " +
+                                            "\n4.Protien \n5.Dairy \n6.Oils \n7.Sweets \n8.Other \n>>");
+
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            choice = Console.ReadLine();
+                            Console.ForegroundColor = ConsoleColor.White;
+                            break;
+                    }
+                }
 
                 // Create new ingredient object
                 Ingredient ingredient = new Ingredient(name, quantity, unit, caloriesPerUnit, foodGroup);
                 //Adds the created ingredient object to the ingredients list
                 Ingredients.Add(ingredient);
-
-                
-                
 
             }
 
@@ -217,7 +282,7 @@ namespace Part2
                     Console.ForegroundColor = ConsoleColor.White;
                     breakk = true;
                 }
-                catch (FormatException )
+                catch (FormatException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Incorect Input.");
@@ -229,10 +294,10 @@ namespace Part2
             {
                 Console.Write($"Enter step");
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.Write($"{ i + 1 }");
+                Console.Write($"{i + 1}");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write($"'s description: ");
-                
+
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 //Gets the step description
                 string step = Console.ReadLine();
@@ -240,7 +305,7 @@ namespace Part2
                 //Adds the created step object to the Steps list
                 AddStep(step);
             }
-            
+
             Display();
 
             //---------Scale Recipe
@@ -259,11 +324,11 @@ namespace Part2
                 Console.ForegroundColor = ConsoleColor.White;
 
                 //Exception handling for scale choice
-                if (option.Equals("y") || option.Equals("yes") || option.Equals("no")|| option.Equals("n"))
+                if (option.Equals("y") || option.Equals("yes") || option.Equals("no") || option.Equals("n"))
                 {
                     breakk = true;
                 }
-                else 
+                else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid choice Try Agian.");
@@ -274,6 +339,7 @@ namespace Part2
             switch (option.ToLower().Trim())
             {
                 case "y":
+                case "yes":
 
                     //Exception handling for scale factor choice                    
                     breakk = false;
@@ -310,7 +376,7 @@ namespace Part2
                     string resetQ = "";
                     while (!breakk)
                     {
-                        
+
                         Console.Write("Would you like to ");
                         Console.ForegroundColor = ConsoleColor.DarkCyan;
                         Console.Write("reset");
@@ -359,12 +425,8 @@ namespace Part2
 
                     break;
             }
-            
+
         }
-        
-
-       
-
 
         // This method adds a step to the recipe.
         public void AddStep(string description)
@@ -389,7 +451,7 @@ namespace Part2
             {
                 Console.WriteLine("Ingredient: " + ingredient.Name);
                 Console.WriteLine("Quantity: " + ingredient.Quantity + " " + ingredient.Unit);
-                Console.WriteLine($"Calories: {ingredient.CaloriesPerUnit} calories per {ingredient.Unit}"  );
+                Console.WriteLine($"Calories: {ingredient.CaloriesPerUnit} calories per {ingredient.Unit}");
                 Console.WriteLine("Food Group: " + ingredient.foodGroup);
                 Console.WriteLine("----------");
             }
@@ -397,17 +459,18 @@ namespace Part2
             foreach (Step step in Steps)
             {
                 Console.WriteLine("Step: " + step.Description);
-                
+
             }
             Console.WriteLine("--------------------------");
 
             Console.ForegroundColor = ConsoleColor.White;
 
+            //Total calories
             double totalcaloreies = 0;
             foreach (Ingredient ingredient in Ingredients)
             {
                 totalcaloreies += cal(ingredient.Quantity, ingredient.CaloriesPerUnit);
-                
+
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"Total Calories is: {totalcaloreies}kcal");
@@ -443,6 +506,7 @@ namespace Part2
         }
 
         // This method clears the recipe.
+
         public void Clear()
         {
             Name = "";

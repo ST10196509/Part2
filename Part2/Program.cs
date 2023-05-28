@@ -23,7 +23,7 @@ namespace Part2
                 string choice = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.White;
 
-                switch (choice) 
+                switch (choice)
                 {
                     case "1":
                         //Creates a new recipe. This does not contain a constructor
@@ -97,7 +97,7 @@ namespace Part2
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choice.");
-                        
+
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }

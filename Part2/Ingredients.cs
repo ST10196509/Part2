@@ -8,37 +8,33 @@ using System.Threading.Tasks;
 namespace Part2
 {
 
-     public class Ingredient
+    public class Ingredient
     {
-       
-        public string Name { get; set; } // The name of the ingredient.
-        public double Quantity { get; set; } // The quantity of the ingredient.
-        public string Unit { get; set; }// The unit of measurement for the ingredient.
+
+        public string Name { get; set; }
+        public double Quantity { get; set; }
+        public string Unit { get; set; }
         public double CaloriesPerUnit { get; set; }
         public string foodGroup { get; set; }
         public double totalCalories { get; set; }
 
         public delegate double delTotalCal(double x, double y);
 
-        
-
         public static double calculate(double x, double y)
         {
             return x * y;
         }
 
-
-
         //This is the ingredient constructor
         //This is the blueprint or what attributes an ingredient has
-        public Ingredient(string name, double quantity, string unit,double caloriesperunit, string foodgroup) 
+        public Ingredient(string name, double quantity, string unit, double caloriesperunit, string foodgroup)
         {
             Name = name;
             Quantity = quantity;
             Unit = unit;
             CaloriesPerUnit = caloriesperunit;
             foodGroup = foodgroup;
-            
+
         }
     }
 }
