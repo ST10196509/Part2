@@ -33,7 +33,7 @@ namespace Part2
                         //Adds the recipe to the collection.
                         recipes.Add(recipe);
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Recipe added successfuly.");
+                        Console.WriteLine("Recipe added successfully.");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
 
@@ -51,7 +51,7 @@ namespace Part2
                         var sortedRecipes = recipes.OrderBy(r => r.Name);
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.Write("\n--------------------------");
-                        Console.WriteLine("\nRecipies");
+                        Console.WriteLine("\n\tRecipies");
                         Console.WriteLine("--------------------------");
 
                         /* 
@@ -62,6 +62,7 @@ namespace Part2
                         {
                             Console.WriteLine($"{r.Name}");
                         }
+                        Console.WriteLine("--------------------------");
                         Console.WriteLine();
                         Console.ForegroundColor = ConsoleColor.White;
 

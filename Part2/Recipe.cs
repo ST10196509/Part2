@@ -30,7 +30,7 @@ namespace Part2
             bool breakk = false;
             double quantity = 0;
 
-            //Name of recipe
+            //-------------Name of recipe
             Console.Write("Enter the ");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write("name");
@@ -181,13 +181,14 @@ namespace Part2
                 Console.WriteLine($" {i + 1}");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("1.Fruits \n2.Vegetables \n3.Grains " +
-                                "\n4.Protien \n5.Dairy \n6.Oils \n7.Sweets \n8.Other \n>>");
+                                "\n4.Protien \n5.Dairy \n6.Oils \n7.Meat \n8.Other \n>>");
 
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 string choice = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.White;
                 string foodGroup = "";
 
+                //(breakk) is the exception handling so user inputs what we ask them and nothing else
                 breakk = false;
                 while (!breakk)
                 {
@@ -231,13 +232,15 @@ namespace Part2
                             break;
 
                         case "7":
-                        case "sweets":
-                            foodGroup = "Sweets";
+                        case "meat":
+                            foodGroup = "Meat";
                             breakk = true;
                             break;
                         case "8":
                             Console.Write("Enter the food group >>");
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
                             foodGroup = Console.ReadLine();
+                            Console.ForegroundColor = ConsoleColor.White;
                             breakk = true;
                             break;
                         default:
@@ -247,7 +250,7 @@ namespace Part2
 
                             Console.WriteLine("\nEnter number or name of food group ");
                             Console.Write("1.Fruits \n2.Vegetables \n3.Grains " +
-                                            "\n4.Protien \n5.Dairy \n6.Oils \n7.Sweets \n8.Other \n>>");
+                                            "\n4.Protien \n5.Dairy \n6.Oils \n7.Meat \n8.Other \n>>");
 
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
                             choice = Console.ReadLine();
@@ -262,6 +265,7 @@ namespace Part2
                 Ingredients.Add(ingredient);
 
             }
+            //--------------Steps
 
             // This while loop will continue to run until the breakk variable is set to true(user-input is valid).
             breakk = false;
@@ -465,16 +469,18 @@ namespace Part2
 
             Console.ForegroundColor = ConsoleColor.White;
 
-            //Total calories
+            //------------Total calories
             double totalcaloreies = 0;
             foreach (Ingredient ingredient in Ingredients)
             {
                 totalcaloreies += cal(ingredient.Quantity, ingredient.CaloriesPerUnit);
 
             }
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"Total Calories is: {totalcaloreies}kcal");
             Console.ForegroundColor = ConsoleColor.White;
+
             if (totalcaloreies > 300)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
