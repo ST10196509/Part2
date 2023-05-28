@@ -1,11 +1,11 @@
 # Part2
 How to use the app:
 
-1. You will be provided with a menu and are asked to input your choice
-    "1. Add a new recipe
+1. You will be provided with a menu and are asked to input your choice:
+    1. Add a new recipe
     2. Display all recipes
     3. Quit
-    Enter your choice: "
+    Enter your choice: 
 2. The user will then choose option 1 to add a new recipe.
 3. Once option 1 is entered you will then be asked for the name of your recipe Eg. Pancake
 4. The program  will then ask for the number of ingredients your recipe contains Eg. 6
