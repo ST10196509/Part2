@@ -13,7 +13,7 @@ How to use the app:
 6. The program will ask for the quanitity of Ingredient 1 Eg. 1
 7. The program will ask for the unit of measurement for ingredient 1 Eg. Cup
 8. The program will ask for the calories per unit for the 1st Ingredient Eg. 200kcal
-9. Thee program will then ask what food group that Ingredient belongs to and the program will give you a list of food groups to choose like Fruits,Vegitables, Grains, Protien, Dairy, Oils, Mean and other where you can specify the food group. For Ingredient 1 Eg. Grains
+9. Thee program will then ask what food group that Ingredient belongs to and the program will give you a list of food groups to choose like Fruits,Vegitables, Grains, Protien, Dairy, Oils, Meat and Other where you can specify the food group. For Ingredient 1 Eg. Grains
 10. It will then ask you the same question for the remaining Ingredients 
 11. Once the Ingredients are collected the program will as for the number of steps it takes to create the recipe Eg. 3
 12. The program will then get the step instructions from the user
